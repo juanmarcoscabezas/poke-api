@@ -90,7 +90,7 @@ _Used tools_
 * **Juan Marcos Cabezas** - *Software Engineer* - [juanmarcoscabezas](https://github.com/juanmarcoscabezas)
 
 
-You can also look at the list of all [contributors](https://github.com/juanmarcoscabezas/poke-api/AUTHORS) who have participated in this project.
+You can also look at the list of all [contributors](https://github.com/juanmarcoscabezas/poke-api/blob/main/AUTHORS) who have participated in this project.
 
 ## License 📄
 
