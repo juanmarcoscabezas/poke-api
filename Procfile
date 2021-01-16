@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn easy_search.wsgi --log-file -
+web: gunicorn pokeapi.wsgi --log-file -
