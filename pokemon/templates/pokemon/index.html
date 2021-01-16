@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h2 class="my-4 text-center">Pokeapi</h2>
+    <form class="text-center mb-4" action="/" method="get">
+        <div class="row">
+            <label class="col-3" for="pokemon_name">Pokemon name</label>
+            <div class="col-9">
+                <input class="form-control" type="text" name="pokemon_name" id="pokemon_name">
+            </div>
+        </div>
+    </form>
+    {% if error_message %}
+        <h3 class="text-center">{{error_message}}</h3>
+    {% endif %}
+    {% if pokemon_detail %}
+        {% for pokemon in pokemon_detail %}
+            <div class="card">
+                <div class="card-body text-center">
+                    <img src="{{pokemon.image}}" alt="Pokemon {{pokemon.name}}">
+                    <h3 class="card-title">{{pokemon.name}}</h3>
+                    <div class="d-flex flex-wrap justify-content-evenly">
+                        <p class="card-text">
+                             <span class="badge bg-primary">Height: {{pokemon.height}}</span>
+                        </p>
+                        <p class="card-text">
+                            <span class="badge bg-secondary"> Weight: {{pokemon.weight}}</span>
+                        </p>
+                        <p class="card-text">
+                            <span class="badge bg-success">HP: {{pokemon.hp}}</span>
+                        </p>
+                        <p class="card-text">
+                            <span class="badge bg-danger">Attack: {{pokemon.attack}}</span>
+                        </p>
+                        <p class="card-text">
+                            <span class="badge bg-warning">Defense: {{pokemon.defense}}</span>
+                        </p>
+                        <p class="card-text">
+                            <span class="badge bg-primary">Special Attack: {{pokemon.special_attack}}</span>
+                        </p>
+                        <p class="card-text">
+                            <span class="badge bg-success">Special Defense: {{pokemon.special_defense}}</span>
+                        </p>
+                        <p class="card-text">
+                            <span class="badge bg-dark">Speed: {{pokemon.speed}}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    {% if page_obj %}
+        <ul class="list-group my-4">
+            {% for pokemon in page_obj %}
+                <li class="list-group-item">{{pokemon.name}}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No pokemons are available.</p>
+    {% endif %}
+
+    {% include '../pagination.html' %}
+
+{% endblock %}
