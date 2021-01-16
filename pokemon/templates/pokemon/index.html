@@ -19,11 +19,11 @@
     </div>
 
     {% if error_message %}
-        <h3 class="text-center">{{error_message}}</h3>
+        <h3 class="text-center my-5 text-danger">{{error_message}}</h3>
     {% endif %}
     {% if pokemon_detail %}
         {% for pokemon in pokemon_detail %}
-            <div class="card">
+            <div class="card mb-5">
                 <div class="card-body">
                     <h4 class="mb-0">#{{pokemon.id}}</h4>
                     <div class="text-center">

@@ -3,6 +3,12 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator
 from .models import Pokemon
 
+from django.shortcuts import redirect
+
+def view_404(request, exception=None):
+    redirect_url = request.META['PATH_INFO']
+    return redirect('/?redirect={}'.format(redirect_url))
+
 def index(request):
     context = {}
     pokemon_name = request.GET.get('pokemon_name')
@@ -18,7 +24,7 @@ def index(request):
     if page_number is None or page_number == '':
         page_number = 1
 
-    pokemon_list = Pokemon.objects.all()
+    pokemon_list = Pokemon.objects.all().order_by('id')
     paginator = Paginator(pokemon_list, 6)
     page_obj = paginator.get_page(page_number)
 
