@@ -15,6 +15,9 @@ def index(request):
     page_number = request.GET.get('page')
     error_message = None
 
+    if pokemon_name is None:
+        pokemon_name = ''
+
     if pokemon_name is not None and pokemon_name != '':
         pokemon_detail = Pokemon.objects.filter(name__contains=pokemon_name)[:1]
         if len(pokemon_detail) == 0:
