@@ -1,31 +1,44 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <h2 class="my-4 text-center">Pokeapi</h2>
-    <form class="text-center mb-4" action="/" method="get">
-        <div class="row">
-            <label class="col-3" for="pokemon_name">Pokemon name</label>
-            <div class="col-9">
-                <input class="form-control" type="text" name="pokemon_name" id="pokemon_name">
+    <h2 class="my-4 text-center">Welcome to Pokeapi</h2>
+    <div class="row">
+        <form class="text-center mb-4 mx-auto" action="/" method="get" style="max-width: 600px;">
+            <div class="row align-items-center">
+                <label class="col-3" for="pokemon_name">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
+                    Pokemon
+                </label>
+                <div class="col-9">
+                    <input class="form-control" type="text" name="pokemon_name" id="pokemon_name">
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
+
     {% if error_message %}
         <h3 class="text-center">{{error_message}}</h3>
     {% endif %}
     {% if pokemon_detail %}
         {% for pokemon in pokemon_detail %}
             <div class="card">
-                <div class="card-body text-center">
-                    <img src="{{pokemon.image}}" alt="Pokemon {{pokemon.name}}">
-                    <h3 class="card-title">{{pokemon.name}}</h3>
+                <div class="card-body">
+                    <h4 class="mb-0">#{{pokemon.id}}</h4>
+                    <div class="text-center">
+                        <img src="{{pokemon.image}}" alt="Pokemon {{pokemon.name}}">
+                        <h3 class="card-title">{{pokemon.name}}</h3>
+                    </div>
+
                     <div class="d-flex flex-wrap justify-content-evenly">
                         <p class="card-text">
-                             <span class="badge bg-primary">Height: {{pokemon.height}}</span>
+                            <span class="badge bg-secondary">Height: {{pokemon.height}}</span>
                         </p>
                         <p class="card-text">
                             <span class="badge bg-secondary"> Weight: {{pokemon.weight}}</span>
                         </p>
+
                         <p class="card-text">
                             <span class="badge bg-success">HP: {{pokemon.hp}}</span>
                         </p>
@@ -50,11 +63,36 @@
         {% endfor %}
     {% endif %}
     {% if page_obj %}
-        <ul class="list-group my-4">
-            {% for pokemon in page_obj %}
-                <li class="list-group-item">{{pokemon.name}}</li>
-            {% endfor %}
-        </ul>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Pokemon</th>
+                    <th scope="col">HP</th>
+                    <th scope="col">Attack</th>
+                    <th scope="col">Defense</th>
+                    <th scope="col">Special Attack</th>
+                    <th scope="col">Special Defense</th>
+                    <th scope="col">Speed</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pokemon in page_obj %}
+                <tr>
+                    <th scope="row">{{pokemon.id}}</th>
+                    <td>{{pokemon.name}}</td>
+                    <td><span class="badge bg-success">{{pokemon.hp}}</span></td>
+                    <td><span class="badge bg-danger">{{pokemon.attack}}</span></td>
+                    <td><span class="badge bg-warning">{{pokemon.defense}}</span></td>
+                    <td><span class="badge bg-primary">{{pokemon.special_attack}}</span></td>
+                    <td><span class="badge bg-success">{{pokemon.special_defense}}</span></td>
+                    <td><span class="badge bg-dark">{{pokemon.speed}}</span></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
     {% else %}
         <p>No pokemons are available.</p>
     {% endif %}
