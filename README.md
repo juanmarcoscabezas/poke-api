@@ -9,6 +9,8 @@ completely a Pokemon and its relations around the universe._
 
 _This project takes the data from the PokeApi (https://pokeapi.co/docs/v2)._
 
+![Pokeapi](https://github.com/juanmarcoscabezas/poke-api/doc-images/pokeapi.png)
+
 
 ## Starting 🚀
 
