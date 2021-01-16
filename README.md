@@ -11,7 +11,9 @@ completely a Pokemon and its relations around the universe._
 
 _This project takes the data from the PokeApi (https://pokeapi.co/docs/v2)._
 
-![Pokeapi](https://raw.githubusercontent.com/juanmarcoscabezas/poke-api/main/doc-images/pokeapi.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/juanmarcoscabezas/poke-api/main/doc-images/pokeapi.png" alt="Sublime's custom image" style="max-width: 500px"/>
+</p>
 
 
 ## Starting 🚀
