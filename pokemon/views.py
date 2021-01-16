@@ -19,7 +19,7 @@ def index(request):
         pokemon_name = ''
 
     if pokemon_name is not None and pokemon_name != '':
-        pokemon_detail = Pokemon.objects.filter(name__contains=pokemon_name)[:1]
+        pokemon_detail = Pokemon.objects.filter(name__icontains=pokemon_name)[:1]
         if len(pokemon_detail) == 0:
             error_message = 'Pokemon not found'
         else:
