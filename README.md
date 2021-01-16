@@ -33,6 +33,25 @@ pip install whitenoise==5.1.0
 pip install requests==2.22.0
 ```
 
+### Built-in Command 🤖
+
+_Add a new evolution chain._
+
+`
+python3 manage.py evolution_chain $ID
+`
+
+_Example._
+
+`
+python3 manage.py evolution_chain 1
+`
+
+_To run the previous command in the application deployed in heroku.
+Select the "more" button and then click on "run console". this will display a new window and allow you to enter the command._
+
+
+
 ### Start the server 🔧
 
 _Apply the migrations_
