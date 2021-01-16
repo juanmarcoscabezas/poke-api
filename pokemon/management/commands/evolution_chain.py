@@ -54,7 +54,7 @@ def get_pokemon_from_api(id, evolves_from):
         'name': pokemon['name'],
         'height': pokemon['height'],
         'weight': pokemon['weight'],
-        'image': pokemon['sprites']['back_default']
+        'image': pokemon['sprites']['front_default'] if pokemon['sprites']['front_default'] is not None else pokemon['sprites']['back_default']
     }
     if evolves_from is not None:
         pokemon_parent = Pokemon.objects.get(id=evolves_from)

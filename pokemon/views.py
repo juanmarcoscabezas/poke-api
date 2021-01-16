@@ -19,6 +19,9 @@ def index(request):
         pokemon_detail = Pokemon.objects.filter(name__contains=pokemon_name)[:1]
         if len(pokemon_detail) == 0:
             error_message = 'Pokemon not found'
+        else:
+            pokemon_evolutions = Pokemon.objects.filter(evolves_from=pokemon_detail[0])
+            context['pokemon_evolutions'] = pokemon_evolutions
         context['pokemon_detail'] = pokemon_detail
     
     if page_number is None or page_number == '':

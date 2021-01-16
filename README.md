@@ -26,7 +26,7 @@ git clone https://github.com/juanmarcoscabezas/poke-api
 
 Look at **Deployment** to know how to deploy the project.
 
-### Requirements 📋
+## Requirements 📋
 
 _Required packages to run the application and how to install them_
 
@@ -39,7 +39,7 @@ pip install whitenoise==5.1.0
 pip install requests==2.22.0
 ```
 
-### Built-in Command 🤖
+## Built-in Command 🤖
 
 _Add a new evolution chain._
 
@@ -57,10 +57,9 @@ _To run the previous command in the application deployed in heroku.
 Select the "more" button and then click on "run console". this will display a new window and allow you to enter the command._
 
 
+## Start the server 🔧
 
-### Start the server 🔧
-
-_Apply the migrations_
+_Apply the migrations._
 
 `
 python manage.py migrate
@@ -80,7 +79,7 @@ _You must enter your heroku account, create a new application and link the herok
 
 ## Built with 🛠️
 
-_Menciona las herramientas que utilizaste para crear tu proyecto_
+_Used tools_
 
 * [Django](https://www.djangoproject.com/) - Web framework
 * [pip](https://pypi.org/project/pip/) - Package installer for Python

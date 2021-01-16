@@ -61,6 +61,39 @@
                         </p>
                     </div>
                 </div>
+                <div class="card-body">
+                    {% if pokemon.evolves_from %}
+                        <h4 class="text-center">Preevolution</h4>
+                        <div class="row justify-content-center">
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6>{{pokemon.evolves_from.id}}</h6>
+                                        <img src="{{pokemon.evolves_from.image}}" alt="">
+                                        <h5 class="text-center"><a href="/?pokemon_name={{pokemon.evolves_from.name}}">{{pokemon.evolves_from.name}}</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if pokemon_evolutions %}
+                        <h4 class="text-center mt-4">Evolution{% if pokemon_evolutions|length > 1 %}s{% endif %}</h4>
+                        <div class="row justify-content-center">
+                            {% for evolution in pokemon_evolutions %}
+                                <div class="col-3 mt-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h6>{{evolution.id}}</h6>
+                                            <img src="{{evolution.image}}" alt="">
+                                            <h5 class="text-center"><a href="/?pokemon_name={{evolution.name}}">{{evolution.name}}</a></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
             </div>
         {% endfor %}
     {% endif %}
@@ -83,7 +116,7 @@
                 {% for pokemon in page_obj %}
                 <tr>
                     <th scope="row">{{pokemon.id}}</th>
-                    <td>{{pokemon.name}}</td>
+                    <td><a href="/?pokemon_name={{pokemon.name}}">{{pokemon.name}}</a></td>
                     <td><span class="badge bg-success">{{pokemon.hp}}</span></td>
                     <td><span class="badge bg-danger">{{pokemon.attack}}</span></td>
                     <td><span class="badge bg-warning">{{pokemon.defense}}</span></td>
